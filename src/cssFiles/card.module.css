@@ -1,0 +1,57 @@
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 450px;
+    height: max-content;
+    background-color: white;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 40px;
+    color: #009499;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.62);
+    animation: fadeIn 1s ease;
+  }
+
+  .ShowContentBtn {
+    background-color: #009da3;
+    width: 200px;
+    animation: moveInBottom 0.5s ease-out .75s;
+    animation-fill-mode: backwards;
+  }
+
+  .header {
+    animation: moveInTop 1s ease-out;
+  }
+
+  .para{
+    color: blue;
+    padding: 10px;
+    text-align: center;
+  }
+
+  @keyframes moveInTop {
+    0% {
+      opacity: 0;
+      transform: translateY(-30px)
+    }
+
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      
+    }
+
+
+    100% {
+      opacity: 1;
+    
+    }
+  }

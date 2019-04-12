@@ -1,0 +1,88 @@
+.div {
+  border: 1px solid black;
+  width:300px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  border-radius: 10px 0px 10px 0px;
+  margin-bottom: 5px;
+  box-shadow: 0px 1px 0px 1px grey;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+.h1 {
+  color: rgb(255, 169, 10);
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.Wrapper {
+  border: 1px solid black;
+  width:200px;
+  height: 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  text-align: left;
+  border-radius: 10px 0px 10px 0px;
+  margin-bottom: 5px;
+  box-shadow: 0px 1px 0px 1px grey;
+}
+
+.p {
+  color: black;
+  font-size: 18px;
+  font-weight: 200;
+  margin-bottom: 20px;
+}
+
+.ShowAddress {
+  background-color: #009da3;
+  width: 100px;
+}
+
+.ShowAddress  {
+  min-width: 200px;
+  border-radius: 10px 0px 10px 0px;
+  color: white;
+  border: none;
+  margin-top: 10px;
+  padding: 10px;
+  box-shadow: 1px 2px 1px 0px rgba(0, 0, 0, 0.62);
+}
+
+.ShowAddress:focus {
+  outline: 0;
+}
+
+
+.ShowAddress:hover {
+  opacity: 0.9;
+}
+
+.ShowAddress:active {
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.62);
+}
+
+.pName {
+  color: grey;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.ToggleBtn {
+  background-color: #009da3;
+  color: white;
+  min-width: 200px;
+  border-radius: 10px 0px 10px 0px;
+  border: none;
+  margin-top: 10px;
+  padding: 10px;
+  box-shadow: 1px 2px 1px 0px rgba(0, 0, 0, 0.62);
+
+}

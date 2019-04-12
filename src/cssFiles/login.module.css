@@ -1,0 +1,32 @@
+.input {
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    padding: 10px;
+    outline: none;
+    border-radius: 10px 0px 10px 0px;
+}
+
+.hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.ShowContentBtn {
+    background-color: #009da3;
+    width: 200px;
+    animation: moveInBottom 0.5s ease-out .75s;
+    animation-fill-mode: backwards;
+    margin-top: 20px;
+}
+
+.btnAdd {
+    background-color: #00aa00;
+    margin-right: 10px;
+    margin-bottom: 30px;
+    animation: rotate 1.5s ease;
+    animation-delay: 1.5s;
+    animation-fill-mode: backwards;
+}
+
