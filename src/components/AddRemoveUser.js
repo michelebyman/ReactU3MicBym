@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styles from '../cssFiles/addRemoveUser.module.css';
 import PropTypes from 'prop-types'
 
+
 // handle users, removes existing users and add new users 
 
 class AddRemoveUser extends Component {
@@ -13,27 +14,32 @@ class AddRemoveUser extends Component {
   constructor(props){
     super(props);
     this.state = {
-      value: ''
+        name: '',
+        username: '',
+        email: ''
     } 
   }
 
   
- // calls a function passing a value as an argument 
-  handleAddUserOnSubmit = (event) => {
-    if (this.state.value) {
-      this.props.setNewUser(this.state.value);
+ // calls a function passing a values as arguments
+  handleAddUserOnSubmit = () => {
+    if (this.state.name) {
+      this.props.setNewUser(this.state.name,this.state.username,this.state.email );
     }
     this.setState({
-      value: ''
+      name: '',
+      username: '',
+      email: ''
     })
   }
+  
 
-  // sets the new value every time we type anything in the input field
-   handleNewUser = (event) => {
-      this.setState({
-        value: event.target.value
-      })  
-   }
+  handleInputChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  }
+  
 
    // calls a function which removes and updates the new userList
    removeUser = () => { 
@@ -44,11 +50,29 @@ class AddRemoveUser extends Component {
   render() {
     return (
       <div>
+       
         <input 
           maxLength="25" type="text" 
-          value={this.state.value} 
-          placeholder="new user..." 
-          onChange={this.handleNewUser}  
+          value={this.state.name} 
+          name='name'
+          placeholder="Name" 
+          onChange={this.handleInputChange}
+          className={styles.input}
+        />
+        <input 
+          maxLength="25" type="text" 
+          value={this.state.username} 
+          placeholder="Username" 
+          name='username'
+          onChange={this.handleInputChange} 
+          className={styles.input}
+        />
+        <input 
+          maxLength="25" type="email" 
+          value={this.state.email} 
+          placeholder="Email" 
+          name='email'
+          onChange={this.handleInputChange} 
           className={styles.input}
         />
 

@@ -3,6 +3,7 @@ import CardComponent from '../.././components/CardComponent'
 import AddRemoveUser from '../.././components/AddRemoveUser'
 import UserList from '../.././components/UserList'
 import PropTypes from 'prop-types'
+import withHTTPRequests from '../../HOCS/withHTTPRequests'
 
 
 
@@ -24,15 +25,15 @@ class DashboardComponent extends Component {
    }
 
    componentDidMount() {
-    fetch('http://api.softhouse.rocks/users')
-    .then((response) => {
+    const url = this.props.getUserList();
+    url.then((response) => {
       return response.json();
     })
     .then((myJson)=> {
       myJson.sort((a, b) => { 
               return a.id - b.id;
             });  
-        console.log(myJson);
+        // console.log(myJson);
       this.setState({
         userList: myJson 
       })
@@ -41,17 +42,22 @@ class DashboardComponent extends Component {
   
 
 // change the string(with a user from input) to an Array, makes a new list, set the new state
-   setNewUser = (newUser) => {
+   setNewUser = (newUser, userEmail, username) => {
+    console.log(newUser);
+    console.log(userEmail);
+    console.log(username);
       const stringToObject = 
       // {name:newUser, isActive:true}
       // This is less code ;) 
-      {id:this.state.userList.length + 1,
+      
+      
+      {id: this.state.userList.length + 1,
         name:newUser,
-        username: 'new user',
-        email: 'newUser@this.setNewUser.com',
+        username: username,
+        email: userEmail,
         address: {
           city: 'unknown',
-          geo: {lat: -37.3159, lng: 81.1496},
+          geo: {lat: 0, lng: 0},
           street:'unknown',
           suite: 'unknown',
           zipcode: "92998-3874",
@@ -117,4 +123,4 @@ class DashboardComponent extends Component {
   }
 }
 
-export default DashboardComponent;
+export default withHTTPRequests(DashboardComponent);

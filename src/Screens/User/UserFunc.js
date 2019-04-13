@@ -1,24 +1,24 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import Styles from './user.module.css'
+import withHTTPRequests from '../../HOCS/withHTTPRequests'
 
 
-function userFunc({userId})  {
+function userFunc({getSingleUser})  {
  
-  const [user, setUser] = useState('')
+  const [user, setUser] = useState(Object)
   const [toggleTrueOrFalse, setToggle] = useState(true)
-
 
  const toggleFunc = () => {
   setToggle(!toggleTrueOrFalse)  
  }
 
  useEffect(() => {
-      fetch(`http://api.softhouse.rocks/users/${userId}`)
-      .then((response) => {
+      const url = getSingleUser()
+
+      url.then((response) => {
         return response.json();
       })
       .then((myJson)=> {
-
           setUser(myJson) 
       });
   }, []);
@@ -52,4 +52,4 @@ function userFunc({userId})  {
   
 
 
-export default userFunc;
+export default withHTTPRequests(userFunc);

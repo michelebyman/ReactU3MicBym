@@ -3,18 +3,25 @@ import React, { Component }from 'react'
 
 export default function withHTTPRequests(WrappedComponent, selectedData) {
   return class  extends Component {
+
+
+    getSingleUser = () => {
+      return fetch(`http://api.softhouse.rocks/users/${this.props.userId}`)
+    }
+
+    getUserList = () => {
+      return fetch('http://api.softhouse.rocks/users/')
+    }
+
+   
+    
    
     render() {
 
-      const user = fetch(`http://api.softhouse.rocks/users/7`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((myJson)=> {
-        return myJson
-      });
-
-      return <WrappedComponent singleUser={user}/>
+      return <WrappedComponent 
+                getSingleUser={this.getSingleUser}
+                getUserList={this.getUserList}
+              />
     }
   };
 }
