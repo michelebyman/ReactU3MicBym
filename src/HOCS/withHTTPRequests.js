@@ -13,6 +13,17 @@ export default function withHTTPRequests(WrappedComponent, selectedData) {
       return fetch('http://api.softhouse.rocks/users/')
     }
 
+    createNewUser = (newUser) => {
+      const url = 'http://api.softhouse.rocks/users/15';
+     return  fetch(url, {
+      method: 'PUT', // or 'POST'
+      body: JSON.stringify(newUser), // data can be `string` or {object}!
+      headers:{
+        'Content-Type': 'application/json'
+      }
+    })
+    }
+
    
     
    
@@ -21,6 +32,7 @@ export default function withHTTPRequests(WrappedComponent, selectedData) {
       return <WrappedComponent 
                 getSingleUser={this.getSingleUser}
                 getUserList={this.getUserList}
+                createNewUser={this.createNewUser}
               />
     }
   };

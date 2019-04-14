@@ -22,6 +22,7 @@ class DashboardComponent extends Component {
      this.state = {
        userList: []
      }
+     this.setNewUser = this.setNewUser.bind(this)
    }
 
    componentDidMount() {
@@ -39,59 +40,35 @@ class DashboardComponent extends Component {
       })
     });
    }
-  
 
-// change the string(with a user from input) to an Array, makes a new list, set the new state
+
+// create a new object with the user details from the input fields
    setNewUser = (newUser, userEmail, username) => {
-    console.log(newUser);
-    console.log(userEmail);
-    console.log(username);
-      const stringToObject = 
-      // {name:newUser, isActive:true}
-      // This is less code ;) 
-      
-      
-      {id: this.state.userList.length + 1,
+      const newUserObject =   
+      {
+        // id: this.state.userList.length + 1,
         name:newUser,
         username: username,
         email: userEmail,
         address: {
           city: 'unknown',
-          geo: {lat: 0, lng: 0},
           street:'unknown',
           suite: 'unknown',
-          zipcode: "92998-3874",
-          email: "Sincere@april.biz",
-          __v: 0,
-          _id: "5caaef896b334800cbf66332" } 
+          zipcode: "unknown",
+          geo: {
+            lat: 0,
+             lng: 0
+            },
+           } 
       };
+      console.log(newUserObject);
 
-      const allUsers = this.state.userList.concat(stringToObject); 
-
-      // const allUsersWithId = allUsers.map((item, index)=>{
-      //   return {
-      //     id:index + 1, 
-      //     name: item.name,
-      //     isActive: item.isActive
-      //   }
-      // })    
+    
+      const user = newUserObject;
+      this.props.createNewUser(user).then(res => res.json())
+      .then(response => console.log('Success:', JSON.stringify(response)))
+      .catch(error => console.error('Error:', error));
       
-      // const isActive = allUsersWithId.filter((item) => 
-      //  item.isActive   
-      // ); 
-      // const isNotActive = allUsersWithId.filter((item)=>
-      //   !item.isActive
-      // )
-      // const completeList = isActive.concat(isNotActive);
-      
-      //Sorts the list so the list is written in order by id
-      allUsers.sort((a, b) => { 
-        return a.id - b.id;
-      });  
-            
-     this.setState({
-       userList: allUsers
-     })
    }
 
    //create a new array (removes one user), set the new state and update the userList
@@ -117,7 +94,6 @@ class DashboardComponent extends Component {
           removeUserFromApp={this.removeUserFromApp}
         />
       </CardComponent>
-
       </div>
     );
   }

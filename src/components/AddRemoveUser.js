@@ -21,10 +21,14 @@ class AddRemoveUser extends Component {
   }
 
   
- // calls a function passing a values as arguments
+//  calls a function passing a values as arguments
   handleAddUserOnSubmit = () => {
     if (this.state.name) {
-      this.props.setNewUser(this.state.name,this.state.username,this.state.email );
+      this.props.setNewUser(
+        this.state.name,
+        this.state.username,
+        this.state.email
+      );
     }
     this.setState({
       name: '',
@@ -32,14 +36,14 @@ class AddRemoveUser extends Component {
       email: ''
     })
   }
-  
 
+  
   handleInputChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
     });
   }
-  
+
 
    // calls a function which removes and updates the new userList
    removeUser = () => { 
