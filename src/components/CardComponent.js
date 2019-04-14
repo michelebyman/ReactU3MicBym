@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import styles from '../cssFiles/card.module.css';
 import PropTypes from 'prop-types'
 
-// displays the card and the structure it gets from props
+// displays the card and the structure it get from props
 class CardComponent extends Component {
    static propTypes = {
     myInfo: PropTypes.string,
@@ -16,7 +16,7 @@ class CardComponent extends Component {
     }
   }
 
-  // sets a state and show or hide content
+  // set state and show or hide content
   showAndHideContent = () => {
     this.setState({
       showOrHide: !this.state.showOrHide

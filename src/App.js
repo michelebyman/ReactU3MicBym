@@ -4,8 +4,7 @@ import DashboardComponent from './Screens/Dashboard/DashboardComponent'
 import User from './Screens/User/User'
 import NavbarComponent from './components/NavbarComponent'
 import { BrowserRouter as Router , Route, Redirect } from 'react-router-dom'
-import LoginComponent from './Screens/Login/LoginComponent';
-// import { Route, Redirect } from 'react-router'
+import LoginComponent from './Screens/Login/LoginComponent'
 
 // render all the components and holds the list of users
 class App extends Component {

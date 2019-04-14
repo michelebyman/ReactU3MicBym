@@ -21,7 +21,7 @@ class AddRemoveUser extends Component {
   }
 
   
-//  calls a function passing a values as arguments
+//  calls a function passing values as arguments from inputs
   handleAddUserOnSubmit = () => {
     if (this.state.name) {
       this.props.setNewUser(
@@ -37,7 +37,7 @@ class AddRemoveUser extends Component {
     })
   }
 
-  
+  // set values from target and add it to the selected target.name
   handleInputChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
@@ -45,7 +45,7 @@ class AddRemoveUser extends Component {
   }
 
 
-   // calls a function which removes and updates the new userList
+   // calls a function which removes and updates the new userList not from back-end
    removeUser = () => { 
          this.props.removeUserFromApp()
    }

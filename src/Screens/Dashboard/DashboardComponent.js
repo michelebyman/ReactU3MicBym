@@ -9,7 +9,7 @@ import withHTTPRequests from '../../HOCS/withHTTPRequests'
 
 
 
-// render all the components besides the Navbar/User and holds the list of users
+// render components and handle new users and the user list
 class DashboardComponent extends Component {
   static propTypes = {
     history: PropTypes.object,
@@ -20,11 +20,11 @@ class DashboardComponent extends Component {
    constructor(props) {
      super(props);
      this.state = {
-       userList: []
+       userList: [],
      }
-     this.setNewUser = this.setNewUser.bind(this)
    }
 
+  // get the API list from HOCS-withHTTPRequests runs after render works
    componentDidMount() {
     const url = this.props.getUserList();
     url.then((response) => {
@@ -42,7 +42,7 @@ class DashboardComponent extends Component {
    }
 
 
-// create a new object with the user details from the input fields
+// create a new object with the user details from the input fields.... update UI does not work
    setNewUser = (newUser, userEmail, username) => {
       const newUserObject =   
       {
@@ -61,17 +61,16 @@ class DashboardComponent extends Component {
             },
            } 
       };
-      console.log(newUserObject);
+      // console.log(newUserObject);
 
-    
       const user = newUserObject;
       this.props.createNewUser(user).then(res => res.json())
       .then(response => console.log('Success:', JSON.stringify(response)))
       .catch(error => console.error('Error:', error));
-      
+  
    }
 
-   //create a new array (removes one user), set the new state and update the userList
+   //create a new array (removes one user), set the new state and update the userList not from API
    removeUserFromApp = () => {
      const reduceUserList = this.state.userList.slice(0,this.state.userList.length -1);
       this.setState({
@@ -81,6 +80,7 @@ class DashboardComponent extends Component {
 
    // renders the components with JSX 
   render() {
+    
     return (
       <div className="wrapper">
       

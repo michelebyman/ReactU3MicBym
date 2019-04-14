@@ -14,16 +14,9 @@ class UserList extends Component {
      super(props);
      this.state = {
        toggleColor: true,
-       showActiveOrNotActive: true,
      }
    }
 
-    // change value and setState to the opposite 
-   showActiveOrNotActive = () => {
-     this.setState({
-       showActiveOrNotActive: !this.state.showActiveOrNotActive
-     })  
-   }
 
    // change value and setState to the opposite 
    toggleColorUserList = () => {
@@ -34,8 +27,7 @@ class UserList extends Component {
 
   render() {
 
-    // maps through the array that comes from the the app.js returns every item in the list as an list Item
-    //checks if the state is true or not and match it with another state then filter a new list of users, sets a Link 
+    // maps through the object that comes from the the dashboard return every item in the list as an list Item
     const users = this.props.users.map((user, i) =>
         <Link key={i} to={`/user/${user.id}`} 
           className={ this.state.toggleColor ? styles.trueColor : styles.falseColor}> 

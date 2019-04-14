@@ -4,7 +4,7 @@ import styles from '../.././cssFiles/login.module.css';
 import PropTypes from 'prop-types'
 
 
-
+//Handle login 
 class LoginComponent extends Component {
   static propTypes = {
     history: PropTypes.object,
@@ -27,6 +27,7 @@ class LoginComponent extends Component {
     })
    }
 
+   // Takes us to the dashboard if we type more then 6 letter in the login field 
    navigate = (event) => {
        if (this.state.value.length > 6) {
            this.props.history.push('/dashboard')
@@ -36,6 +37,7 @@ class LoginComponent extends Component {
        })
    }
 
+  // set state and update it with the target value
     getUser = (event) => {
         this.setState({
             value: event.target.value
