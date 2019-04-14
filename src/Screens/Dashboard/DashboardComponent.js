@@ -66,8 +66,15 @@ class DashboardComponent extends Component {
       const user = newUserObject;
       this.props.createNewUser(user).then(res => res.json())
       .then(response => console.log('Success:', JSON.stringify(response)))
-      .catch(error => console.error('Error:', error));
-  
+      .then(()=>{
+        this.props.getUserList()
+        .then(result => result.json())
+        .then(data => {
+          this.setState({
+            userList: data 
+          })
+        },) 
+      }).catch(error => console.error('Error:', error));
    }
 
    //create a new array (removes one user), set the new state and update the userList not from API
