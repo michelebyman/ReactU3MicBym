@@ -42,7 +42,7 @@ class DashboardComponent extends Component {
    }
 
 
-// create a new object with the user details from the input fields.... update UI does not work
+// create a new object with the user details from the input fields.... update UI works
    setNewUser = (newUser, userEmail, username) => {
       const newUserObject =   
       {
@@ -67,6 +67,7 @@ class DashboardComponent extends Component {
       this.props.createNewUser(user).then(res => res.json())
       .then(response => console.log('Success:', JSON.stringify(response)))
       .then(()=>{
+        //Updates the UI
         this.props.getUserList()
         .then(result => result.json())
         .then(data => {
