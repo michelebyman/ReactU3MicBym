@@ -71,6 +71,9 @@ class DashboardComponent extends Component {
         this.props.getUserList()
         .then(result => result.json())
         .then(data => {
+          data.sort((a, b) => { 
+            return a.id - b.id;
+          });  
           this.setState({
             userList: data 
           })
